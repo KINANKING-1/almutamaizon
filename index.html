@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-width=1.0">
+    <title>شركة المتمیزون لشحن البضائع | AL MUTAMYZON</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;900&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            --dark-bg: #111111;
+            --gray-bg: #1f2937;
+            --gold: #fbbf24;
+            --text-light: #f3f4f6;
+            --nav-height: 80px;
+        }
+
+        /* إعدادات عامة وتجاوب النزول السلس */
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: var(--nav-height); /* يعوض ارتفاع الهيدر عند النزول */
+            font-family: 'Tajawal', sans-serif;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: var(--dark-bg);
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        h1, h2, h3, h4 { margin: 0; font-weight: 700; }
+        a { text-decoration: none; transition: 0.3s ease; }
+        
+        /* الأزرار */
+        .btn {
+            display: inline-block;
+            background-color: var(--gold);
+            color: #000;
+            padding: 12px 30px;
+            border-radius: 5px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            border: 2px solid var(--gold);
+            cursor: pointer;
+        }
+        .btn:hover {
+            background-color: transparent;
+            color: var(--gold);
+        }
+
+        /* الهيدر (الشريط العلوي) */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            height: var(--nav-height);
+            background-color: rgba(17, 17, 17, 0.95);
+            backdrop-filter: blur(10px);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 5%;
+            box-sizing: border-box;
+            z-index: 1000;
+            border-bottom: 2px solid var(--gold);
+        }
+
+        .logo-text { color: #fff; font-size: 1.5rem; font-weight: 900; }
+        .logo-text span { color: var(--gold); }
+
+        .contact-bar { display: flex; gap: 20px; }
+        .contact-bar a { color: #fff; font-weight: 500; display: flex; align-items: center; gap: 8px; font-size: 1rem;}
+        .contact-bar a:hover { color: var(--gold); }
+        .contact-bar i { color: var(--gold); }
+
+        /* قسم Hero */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.8), rgba(17,17,17,0.9)), 
+                        url('https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?q=80&w=2070&auto=format&fit=crop') center/cover;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 20px;
+            margin-top: var(--nav-height); /* عشان ما يتغطى بالهيدر */
+            height: calc(100vh - var(--nav-height));
+        }
+
+        .hero h2 { color: var(--gold); font-size: 1.4rem; letter-spacing: 1px; margin-bottom: 15px; text-transform: uppercase;}
+        .hero h1 { font-size: 4rem; margin-bottom: 20px; color: #fff;}
+        .hero p { font-size: 1.5rem; max-width: 800px; margin-bottom: 40px; color: #ccc;}
+
+        /* تنسيق الأقسام المشتركة */
+        .section { padding: 80px 5%; }
+        .section-title { text-align: center; font-size: 2.5rem; color: var(--gold); margin-bottom: 50px; }
+        
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        /* البطاقات (الخدمات والضمانات) */
+        .card {
+            background-color: var(--gray-bg);
+            padding: 40px 30px;
+            border-radius: 10px;
+            text-align: center;
+            border-bottom: 4px solid var(--gold);
+            transition: transform 0.3s ease;
+        }
+        .card:hover { transform: translateY(-10px); }
+        .card i { font-size: 3.5rem; color: var(--gold); margin-bottom: 20px; }
+        .card h3 { font-size: 1.5rem; margin-bottom: 15px; }
+
+        /* قسم الوجهات */
+        .destinations-bg { background-color: #0a0a0a; }
+        .route-card {
+            background: var(--dark-bg);
+            border: 1px solid #333;
+            padding: 20px;
+            border-radius: 8px;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            font-size: 1.4rem;
+            font-weight: 700;
+        }
+        .route-card i { color: var(--gold); }
+
+        /* قسم لماذا نحن */
+        .why-us-list { list-style: none; padding: 0; max-width: 800px; margin: 0 auto; }
+        .why-us-list li {
+            background: var(--gray-bg);
+            margin-bottom: 15px;
+            padding: 20px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-size: 1.2rem;
+        }
+        .why-us-list i { color: var(--gold); font-size: 1.5rem; }
+
+        /* الفوتر */
+        footer {
+            background-color: #000;
+            padding: 60px 5% 30px;
+            text-align: center;
+            border-top: 3px solid var(--gold);
+        }
+        .footer-content { margin-bottom: 30px; }
+        .footer-phones { display: flex; justify-content: center; flex-wrap: wrap; gap: 20px; margin: 25px 0; }
+        .footer-phones a {
+            background: var(--gray-bg);
+            padding: 15px 25px;
+            border-radius: 5px;
+            color: var(--gold);
+            font-size: 1.3rem;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .footer-phones a:hover { background: var(--gold); color: #000; }
+        .address { color: #aaa; font-size: 1.1rem; }
+
+        /* شاشات الجوال */
+        @media (max-width: 768px) {
+            .contact-bar { display: none; } /* إخفاء الأرقام في الهيدر للجوال للترتيب، الأزرار موجودة تحت */
+            .hero h1 { font-size: 2.5rem; }
+            .hero h2 { font-size: 1rem; }
+            .hero p { font-size: 1.2rem; }
+            .section-title { font-size: 2rem; }
+            .route-card { font-size: 1.1rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo-text">شركة <span>المتمیزون</span></div>
+        <div class="contact-bar">
+            <a href="tel:065665773"><i class="fas fa-phone"></i> 06 566 5773</a>
+            <a href="https://wa.me/9715443557785" target="_blank"><i class="fab fa-whatsapp"></i> 054 435 57785</a>
+            <a href="https://wa.me/971544774134" target="_blank"><i class="fab fa-whatsapp"></i> 054 477 4134</a>
+        </div>
+    </header>
+
+    <section class="hero">
+        <h2>AL MUTAMYZON For Cargo Transport by Heavy Trucks CO.LLC S.O.C</h2>
+        <h1>شركة المتمیزون لشحن البضائع</h1>
+        <p>احترافية، سرعة، وأمان. خيارك الأول لنقل البضائع بالشاحنات الثقيلة داخل الإمارات ودول الخليج.</p>
+        <div style="display: flex; gap: 20px; flex-wrap: wrap; justify-content: center;">
+            <a href="#services" class="btn">اكتشف خدماتنا</a>
+            <a href="https://wa.me/971544774134" class="btn" style="background: transparent; color: var(--gold);">اطلب عرض سعر</a>
+        </div>
+    </section>
+
+    <section class="section destinations-bg">
+        <h2 class="section-title">الوجهات الأكثر طلباً</h2>
+        <div class="grid-3">
+            <div class="route-card">الشارقة <i class="fas fa-truck-moving"></i> الرياض</div>
+            <div class="route-card">دبي <i class="fas fa-truck-moving"></i> الدمام</div>
+            <div class="route-card">أبوظبي <i class="fas fa-truck-moving"></i> مسقط</div>
+            <div class="route-card">الإمارات <i class="fas fa-truck-moving"></i> البحرين</div>
+            <div class="route-card">الشارقة <i class="fas fa-truck-moving"></i> جدة</div>
+            <div class="route-card">الإمارات <i class="fas fa-truck-moving"></i> الكويت</div>
+        </div>
+    </section>
+
+    <section class="section">
+        <h2 class="section-title">ضماناتنا 100%</h2>
+        <div class="grid-3">
+            <div class="card">
+                <i class="fas fa-shield-alt"></i>
+                <h3>أمان تام</h3>
+                <p>نضمن وصول بضائعك بأعلى معايير السلامة والأمان بدون أي خدش.</p>
+            </div>
+            <div class="card">
+                <i class="fas fa-clock"></i>
+                <h3>دقة في المواعيد</h3>
+                <p>وقتك يهمنا، التزام تام بمواعيد الاستلام والتسليم المحددة.</p>
+            </div>
+            <div class="card">
+                <i class="fas fa-smile"></i>
+                <h3>رضا العملاء</h3>
+                <p>فريقنا يعمل لخدمتك وضمان رضاك الكامل عن كل رحلة شحن.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="section destinations-bg">
+        <h2 class="section-title">خدماتنا الرئيسية</h2>
+        <div class="grid-3">
+            <div class="card">
+                <i class="fas fa-box-open"></i>
+                <h3>نقل البضائع العامة</h3>
+                <p>نوفر شاحنات مسطحة ومغلقة بجميع الأحجام لتناسب كافة أنواع البضائع والمعدات.</p>
+            </div>
+            <div class="card">
+                <i class="fas fa-globe-americas"></i>
+                <h3>نقل داخلي وخارجي</h3>
+                <p>تغطية شاملة لجميع إمارات الدولة ورحلات مستمرة لكافة دول الخليج العربي.</p>
+            </div>
+            <div class="card">
+                <i class="fas fa-headset"></i>
+                <h3>خدمة 24/7</h3>
+                <p>فريق دعم لوجستي متواجد على مدار الساعة لمتابعة شحنتك والرد على استفساراتك.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <h2 class="section-title">لماذا تختار المتمیزون؟</h2>
+        <ul class="why-us-list">
+            <li><i class="fas fa-check-circle"></i> أسطول حديث ومجهز من الشاحنات الثقيلة.</li>
+            <li><i class="fas fa-check-circle"></i> سائقون محترفون وذوو خبرة طويلة في طرق الخليج.</li>
+            <li><i class="fas fa-check-circle"></i> أسعار تنافسية وشفافية تامة بدون رسوم خفية.</li>
+            <li><i class="fas fa-check-circle"></i> حلول لوجستية مرنة تناسب احتياجات الشركات والأفراد.</li>
+        </ul>
+        <div style="text-align: center; margin-top: 40px;">
+            <a href="tel:065665773" class="btn">تواصل معنا الآن</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <h2 style="color: var(--gold); margin-bottom: 10px; font-size: 2rem;">شركة المتمیزون لشحن البضائع</h2>
+            <p style="color: #fff; font-size: 1.1rem;">AL MUTAMYZON For Cargo Transport by Heavy Trucks</p>
+            
+            <div class="footer-phones">
+                <a href="tel:065665773"><i class="fas fa-phone-alt"></i> 06 566 5773</a>
+                <a href="https://wa.me/9715443557785" target="_blank"><i class="fab fa-whatsapp"></i> 054 435 57785</a>
+                <a href="https://wa.me/971544774134" target="_blank"><i class="fab fa-whatsapp"></i> 054 477 4134</a>
+            </div>
+
+            <p class="address">
+                <i class="fas fa-map-marker-alt" style="color: var(--gold);"></i> 
+                الشارقة - الجرف 3 – مبنى 144A – الدور الأول – مكتب 111
+            </p>
+        </div>
+        <div style="color: #666; font-size: 0.9rem; border-top: 1px solid #333; padding-top: 20px;">
+            جميع الحقوق محفوظة © شركة المتمیزون
+        </div>
+    </footer>
+
+</body>
+</html>
